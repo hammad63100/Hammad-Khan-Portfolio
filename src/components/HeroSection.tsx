@@ -1,4 +1,4 @@
-import { ArrowDown, Github, Linkedin, Mail, Phone } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, Phone, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 
@@ -56,6 +56,17 @@ export const HeroSection = () => {
               asChild
             >
               <a href="#contact">Get In Touch</a>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-accent text-accent hover:bg-accent/10 gap-2"
+              asChild
+            >
+              <a href="/resume.pdf" download="Hammad_Khan_Resume.pdf">
+                <Download className="w-4 h-4" />
+                Download CV
+              </a>
             </Button>
           </div>
 
