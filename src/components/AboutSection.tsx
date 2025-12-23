@@ -177,15 +177,15 @@ export const AboutSection = () => {
           <div className="w-20 h-1 bg-primary mx-auto" />
         </div>
 
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24 overflow-visible">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20">
           {/* Profile Photo with Orbiting Icons */}
-          <div className="relative flex-shrink-0 overflow-visible py-16 md:py-20 px-8 md:px-12">
-            <div className="relative w-64 h-64 md:w-72 md:h-72 overflow-visible">
+          <div className="relative flex-shrink-0" style={{ padding: '120px' }}>
+            <div className="relative w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72">
               {/* First Orbit - Inner */}
-              <div className="absolute inset-0 animate-spin-slow">
+              <div className="absolute inset-0 animate-spin-slow" style={{ overflow: 'visible' }}>
                 {orbitingIcons.slice(0, 6).map((item, index) => {
                   const angle = (index * 360) / 6;
-                  const radius = 110;
+                  const radius = 160;
                   const x = Math.cos((angle * Math.PI) / 180) * radius;
                   const y = Math.sin((angle * Math.PI) / 180) * radius;
                   return (
@@ -208,10 +208,10 @@ export const AboutSection = () => {
               </div>
 
               {/* Second Orbit - Middle */}
-              <div className="absolute inset-0 animate-spin-slower">
+              <div className="absolute inset-0 animate-spin-slower" style={{ overflow: 'visible' }}>
                 {orbitingIcons.slice(6, 14).map((item, index) => {
                   const angle = (index * 360) / 8 + 22.5;
-                  const radius = 145;
+                  const radius = 200;
                   const x = Math.cos((angle * Math.PI) / 180) * radius;
                   const y = Math.sin((angle * Math.PI) / 180) * radius;
                   return (
@@ -234,10 +234,10 @@ export const AboutSection = () => {
               </div>
 
               {/* Third Orbit - Outer */}
-              <div className="absolute inset-0 animate-spin-slowest">
+              <div className="absolute inset-0 animate-spin-slowest" style={{ overflow: 'visible' }}>
                 {orbitingIcons.slice(14, 22).map((item, index) => {
                   const angle = (index * 360) / 8 + 10;
-                  const radius = 180;
+                  const radius = 240;
                   const x = Math.cos((angle * Math.PI) / 180) * radius;
                   const y = Math.sin((angle * Math.PI) / 180) * radius;
                   return (
@@ -260,10 +260,10 @@ export const AboutSection = () => {
               </div>
 
               {/* Glowing Ring */}
-              <div className="absolute inset-4 md:inset-6 rounded-full bg-gradient-to-r from-primary/30 via-accent/20 to-primary/30 animate-pulse" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/30 via-accent/20 to-primary/30 animate-pulse" />
               
               {/* Profile Image */}
-              <div className="absolute inset-6 md:inset-8 rounded-full overflow-hidden border-2 border-primary/50 shadow-xl shadow-primary/20">
+              <div className="absolute inset-2 md:inset-3 rounded-full overflow-hidden border-3 border-primary/50 shadow-xl shadow-primary/20">
                 <img
                   src={profilePhoto}
                   alt="Hammad Khan - Blockchain Developer"
