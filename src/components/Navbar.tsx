@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -46,8 +47,8 @@ export const Navbar = () => {
           ))}
         </div>
 
-        {/* Social Links */}
-        <div className="hidden md:flex items-center gap-4">
+        {/* Social Links & Theme Toggle */}
+        <div className="hidden md:flex items-center gap-3">
           <a
             href="https://github.com/hammad63100"
             target="_blank"
@@ -70,17 +71,22 @@ export const Navbar = () => {
           >
             <Mail className="w-5 h-5" />
           </a>
+          <div className="w-px h-5 bg-border mx-1" />
+          <ThemeToggle />
         </div>
 
         {/* Mobile Menu Button */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden text-foreground"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </Button>
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <Button
+            variant="ghost"
+            size="icon"
+            className="text-foreground"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </Button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
