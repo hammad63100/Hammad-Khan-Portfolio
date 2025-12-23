@@ -2,6 +2,7 @@ import { ExternalLink, Github, Layers } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { ScrollReveal } from "@/hooks/useScrollReveal";
 
 const featuredProjects = [
   {
@@ -58,22 +59,28 @@ export const ProjectsSection = () => {
   return (
     <section id="projects" className="py-20 md:py-32">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Featured <span className="text-gradient">Projects</span>
-          </h2>
-          <div className="w-20 h-1 bg-primary mx-auto" />
-        </div>
+        <ScrollReveal animation="slide-down">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Featured <span className="text-gradient">Projects</span>
+            </h2>
+            <div className="w-20 h-1 bg-primary mx-auto" />
+          </div>
+        </ScrollReveal>
 
         {/* Featured Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {featuredProjects.map((project, index) => (
-            <Card
+            <ScrollReveal
               key={index}
-              className={`glass border-border/50 hover:border-primary/50 transition-all duration-300 hover:glow-sm group ${
-                project.featured ? "lg:col-span-1" : ""
-              }`}
+              animation={index % 2 === 0 ? "slide-left" : "slide-right"}
+              delay={index * 100}
             >
+              <Card
+                className={`glass border-border/50 hover:border-primary/50 transition-all duration-300 hover:glow-sm hover:scale-105 group ${
+                  project.featured ? "lg:col-span-1" : ""
+                }`}
+              >
               <CardContent className="p-6 h-full flex flex-col">
                 <div className="flex items-center justify-between mb-4">
                   <Layers className="w-10 h-10 text-primary" />
@@ -106,26 +113,29 @@ export const ProjectsSection = () => {
                 </div>
               </CardContent>
             </Card>
+            </ScrollReveal>
           ))}
         </div>
 
         {/* Other Projects */}
-        <div className="text-center">
-          <h3 className="text-xl font-bold text-foreground mb-6">
-            Other Notable Projects
-          </h3>
-          <div className="flex flex-wrap justify-center gap-3">
-            {otherProjects.map((project, index) => (
-              <Badge
-                key={index}
-                variant="outline"
-                className="border-border hover:border-primary text-muted-foreground hover:text-primary transition-colors px-4 py-2"
-              >
-                {project}
-              </Badge>
-            ))}
+        <ScrollReveal animation="zoom-in" delay={200}>
+          <div className="text-center">
+            <h3 className="text-xl font-bold text-foreground mb-6">
+              Other Notable Projects
+            </h3>
+            <div className="flex flex-wrap justify-center gap-3">
+              {otherProjects.map((project, index) => (
+                <Badge
+                  key={index}
+                  variant="outline"
+                  className="border-border hover:border-primary text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110 px-4 py-2"
+                >
+                  {project}
+                </Badge>
+              ))}
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

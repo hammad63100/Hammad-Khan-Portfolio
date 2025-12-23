@@ -9,6 +9,7 @@ import { SkillsSection } from "@/components/SkillsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 import { ScrollReveal } from "@/hooks/useScrollReveal";
+import { BackgroundIcons } from "@/components/BackgroundIcons";
 
 const Index = () => {
   const structuredData = {
@@ -116,26 +117,27 @@ const Index = () => {
         </script>
       </Helmet>
 
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background relative overflow-hidden">
+        <BackgroundIcons />
         <Navbar />
         <main>
           <HeroSection />
-          <ScrollReveal>
+          <ScrollReveal animation="slide-right">
             <AboutSection />
           </ScrollReveal>
-          <ScrollReveal delay={100}>
+          <ScrollReveal delay={100} animation="zoom-in">
             <EducationSection />
           </ScrollReveal>
-          <ScrollReveal delay={100}>
+          <ScrollReveal delay={100} animation="slide-left">
             <ExperienceSection />
           </ScrollReveal>
           <ScrollReveal delay={100}>
             <ProjectsSection />
           </ScrollReveal>
-          <ScrollReveal delay={100}>
+          <ScrollReveal delay={100} animation="rotate-in">
             <SkillsSection />
           </ScrollReveal>
-          <ScrollReveal delay={100}>
+          <ScrollReveal delay={100} animation="bounce-in">
             <ContactSection />
           </ScrollReveal>
         </main>

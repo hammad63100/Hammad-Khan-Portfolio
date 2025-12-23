@@ -1,4 +1,5 @@
 import profilePhoto from "@/assets/profile-photo.jpeg";
+import { ScrollReveal } from "@/hooks/useScrollReveal";
 
 // SVG icons for blockchain technologies
 const TechIcon = ({ name, color }: { name: string; color: string }) => {
@@ -133,148 +134,103 @@ const TechIcon = ({ name, color }: { name: string; color: string }) => {
         <path d="M16 2C8.3 2 2 8.3 2 16s6.3 14 14 14 14-6.3 14-14S23.7 2 16 2zm1 24h-2v-2h2zm0-4h-2V8h2z"/>
       </svg>
     ),
+    bsc: (
+      <svg viewBox="0 0 32 32" className="w-5 h-5 md:w-6 md:h-6" fill={color}>
+        <path d="M16 2l-3 3 3 3 3-3zM8 10l-3 3 3 3 3-3zM16 10l-3 3 3 3 3-3zM24 10l-3 3 3 3 3-3zM16 18l-3 3 3 3 3-3zM8 18l-3 3 3 3 3-3zM24 18l-3 3 3 3 3-3zM16 26l-3 3 3 3z"/>
+      </svg>
+    ),
+    hyperledger: (
+      <svg viewBox="0 0 32 32" className="w-5 h-5 md:w-6 md:h-6" fill={color}>
+        <path d="M4 8h8v2H4zM4 14h8v2H4zM4 20h8v2H4zM20 8h8v2h-8zM20 14h8v2h-8zM20 20h8v2h-8zM14 4h4v24h-4z"/>
+      </svg>
+    ),
+    ethersjs: (
+      <svg viewBox="0 0 32 32" className="w-5 h-5 md:w-6 md:h-6" fill={color}>
+        <path d="M16 2l-0.2 0.7v21.2l0.2 0.2 9.8-5.8z"/>
+        <path d="M16 0l-9.8 16.3 9.8 5.8v-10.5z" opacity="0.6"/>
+        <path d="M16 23.8l-0.1 0.1v7.5l0.1 0.3 9.8-13.8z"/>
+        <path d="M16 31.7v-7.9l-9.8-5.9z" opacity="0.6"/>
+        <circle cx="24" cy="8" r="2" fill={color}/>
+        <text x="24" y="10" fontSize="3" textAnchor="middle" fill="white" fontWeight="bold">JS</text>
+      </svg>
+    ),
   };
 
   return icons[name] || <span className="text-sm font-bold">{name.slice(0, 2).toUpperCase()}</span>;
 };
 
 const orbitingIcons = [
-  // Inner orbit (6 icons)
+  // Inner orbit (6 icons) - Main Blockchains
   { name: "ethereum", label: "Ethereum", color: "#627EEA" },
   { name: "polygon", label: "Polygon", color: "#8247E5" },
   { name: "solana", label: "Solana", color: "#14F195" },
+  { name: "bsc", label: "Binance Smart Chain", color: "#F3BA2F" },
   { name: "bitcoin", label: "Bitcoin", color: "#F7931A" },
+  { name: "hyperledger", label: "Hyperledger", color: "#2F3134" },
+  
+  // Middle orbit (8 icons) - Dev Tools & Languages
   { name: "solidity", label: "Solidity", color: "#363636" },
   { name: "hardhat", label: "Hardhat", color: "#FFF100" },
-  // Outer orbit (8 icons)
+  { name: "truffle", label: "Truffle", color: "#5E464D" },
   { name: "web3", label: "Web3.js", color: "#F16822" },
+  { name: "ethersjs", label: "Ethers.js", color: "#2B5797" },
+  { name: "remix", label: "Remix IDE", color: "#0D47A1" },
+  { name: "ganache", label: "Ganache", color: "#E4A663" },
   { name: "metamask", label: "MetaMask", color: "#E2761B" },
+  
+  // Outer orbit (8 icons) - Services & Concepts
   { name: "chainlink", label: "Chainlink", color: "#375BD2" },
   { name: "ipfs", label: "IPFS", color: "#65C2CB" },
-  { name: "docker", label: "Docker", color: "#2496ED" },
-  { name: "github", label: "GitHub", color: "#ffffff" },
-  { name: "nodejs", label: "Node.js", color: "#339933" },
-  { name: "graphql", label: "GraphQL", color: "#E10098" },
-  // Third orbit (8 icons)
   { name: "nft", label: "NFT", color: "#FF6B6B" },
   { name: "defi", label: "DeFi", color: "#00D395" },
   { name: "dao", label: "DAO", color: "#9B59B6" },
-  { name: "wallet", label: "Wallet", color: "#3498DB" },
+  { name: "wallet", label: "Crypto Wallet", color: "#3498DB" },
+  { name: "token", label: "ERC-20/721 Token", color: "#E74C3C" },
   { name: "dapp", label: "dApp", color: "#E74C3C" },
-  { name: "remix", label: "Remix IDE", color: "#0D47A1" },
-  { name: "truffle", label: "Truffle", color: "#5E464D" },
-  { name: "ganache", label: "Ganache", color: "#E4A663" },
+  
+  // Fourth orbit (4 icons) - General Dev Tools
+  { name: "github", label: "GitHub", color: "#ffffff" },
+  { name: "docker", label: "Docker", color: "#2496ED" },
+  { name: "nodejs", label: "Node.js", color: "#339933" },
+  { name: "graphql", label: "GraphQL", color: "#E10098" },
 ];
 
 export const AboutSection = () => {
   return (
     <section id="about" className="py-20 md:py-32 overflow-visible">
       <div className="container mx-auto px-6 overflow-visible">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            About <span className="text-gradient">Me</span>
-          </h2>
-          <div className="w-20 h-1 bg-primary mx-auto" />
-        </div>
+        <ScrollReveal animation="slide-down">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              About <span className="text-gradient">Me</span>
+            </h2>
+            <div className="w-20 h-1 bg-primary mx-auto" />
+          </div>
+        </ScrollReveal>
 
         <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20">
-          {/* Profile Photo with Orbiting Icons */}
-          <div className="relative flex-shrink-0" style={{ padding: '120px' }}>
-            <div className="relative w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72">
-              {/* First Orbit - Inner */}
-              <div className="absolute inset-0 animate-spin-slow" style={{ overflow: 'visible' }}>
-                {orbitingIcons.slice(0, 6).map((item, index) => {
-                  const angle = (index * 360) / 6;
-                  const radius = 160;
-                  const x = Math.cos((angle * Math.PI) / 180) * radius;
-                  const y = Math.sin((angle * Math.PI) / 180) * radius;
-                  return (
-                    <div
-                      key={index}
-                      className="absolute left-1/2 top-1/2 animate-spin-reverse"
-                      style={{
-                        transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
-                      }}
-                    >
-                      <div 
-                        className="w-10 h-10 md:w-11 md:h-11 bg-card/90 backdrop-blur-sm rounded-full flex items-center justify-center border border-border/50 hover:scale-125 hover:border-primary/50 transition-all duration-300 cursor-default shadow-lg group"
-                        title={item.label}
-                      >
-                        <TechIcon name={item.name} color={item.color} />
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Second Orbit - Middle */}
-              <div className="absolute inset-0 animate-spin-slower" style={{ overflow: 'visible' }}>
-                {orbitingIcons.slice(6, 14).map((item, index) => {
-                  const angle = (index * 360) / 8 + 22.5;
-                  const radius = 200;
-                  const x = Math.cos((angle * Math.PI) / 180) * radius;
-                  const y = Math.sin((angle * Math.PI) / 180) * radius;
-                  return (
-                    <div
-                      key={index}
-                      className="absolute left-1/2 top-1/2 animate-spin-reverse-slow"
-                      style={{
-                        transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
-                      }}
-                    >
-                      <div 
-                        className="w-9 h-9 md:w-10 md:h-10 bg-card/80 backdrop-blur-sm rounded-full flex items-center justify-center border border-border/40 hover:scale-125 hover:border-primary/50 transition-all duration-300 cursor-default shadow-md group"
-                        title={item.label}
-                      >
-                        <TechIcon name={item.name} color={item.color} />
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Third Orbit - Outer */}
-              <div className="absolute inset-0 animate-spin-slowest" style={{ overflow: 'visible' }}>
-                {orbitingIcons.slice(14, 22).map((item, index) => {
-                  const angle = (index * 360) / 8 + 10;
-                  const radius = 240;
-                  const x = Math.cos((angle * Math.PI) / 180) * radius;
-                  const y = Math.sin((angle * Math.PI) / 180) * radius;
-                  return (
-                    <div
-                      key={index}
-                      className="absolute left-1/2 top-1/2 animate-spin-reverse-slowest"
-                      style={{
-                        transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
-                      }}
-                    >
-                      <div 
-                        className="w-8 h-8 md:w-9 md:h-9 bg-card/70 backdrop-blur-sm rounded-full flex items-center justify-center border border-border/30 hover:scale-125 hover:border-primary/50 transition-all duration-300 cursor-default shadow group"
-                        title={item.label}
-                      >
-                        <TechIcon name={item.name} color={item.color} />
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Glowing Ring */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/30 via-accent/20 to-primary/30 animate-pulse" />
-              
-              {/* Profile Image */}
-              <div className="absolute inset-2 md:inset-3 rounded-full overflow-hidden border-3 border-primary/50 shadow-xl shadow-primary/20">
-                <img
-                  src={profilePhoto}
-                  alt="Hammad Khan - Blockchain Developer"
-                  className="w-full h-full object-cover object-top"
-                />
+          {/* Profile Photo - Clean & Simple */}
+          <ScrollReveal animation="zoom-in" delay={100}>
+            <div className="relative flex-shrink-0">
+              <div className="relative w-80 h-[420px] md:w-96 md:h-[480px] lg:w-[420px] lg:h-[520px]">
+                {/* Simple Glowing Ring */}
+                <div className="absolute inset-0 rounded-[50%] bg-gradient-to-r from-primary/20 via-accent/15 to-primary/20 animate-pulse-glow blur-md" />
+                
+                {/* Profile Image */}
+                <div className="absolute inset-3 md:inset-4 rounded-[50%] overflow-hidden border-4 border-primary/60 shadow-2xl shadow-primary/30 hover:border-primary hover:shadow-primary/50 transition-all duration-500">
+                  <img
+                    src={profilePhoto}
+                    alt="Hammad Khan - Blockchain Developer"
+                    className="w-full h-full object-cover object-[center_25%] hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* About Text */}
-          <div className="text-center lg:text-left space-y-6 max-w-xl">
+          <ScrollReveal animation="slide-left" delay={200}>
+            <div className="text-center lg:text-left space-y-6 max-w-xl">
             <p className="text-muted-foreground leading-relaxed text-lg">
               Software Engineering graduate from Islamia College University with
               focused expertise in blockchain development. Skilled in writing
@@ -288,7 +244,8 @@ export const AboutSection = () => {
               innovative blockchain projects and eager to grow my skills in a
               dynamic tech environment.
             </p>
-          </div>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
