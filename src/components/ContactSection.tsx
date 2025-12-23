@@ -45,7 +45,7 @@ export const ContactSection = () => {
         </div>
 
         <div className="max-w-2xl mx-auto">
-          <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 gap-6">
             {contactInfo.map((item, index) => (
               <a
                 key={index}
@@ -54,15 +54,15 @@ export const ContactSection = () => {
                 rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
               >
                 <Card className="glass border-border/50 hover:border-primary/50 transition-all duration-300 hover:glow-sm group cursor-pointer h-full">
-                  <CardContent className="p-6 flex items-center gap-4">
-                    <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                      <item.icon className="w-6 h-6 text-primary" />
+                  <CardContent className="p-4 sm:p-6 flex items-center gap-3 sm:gap-4">
+                    <div className="p-2 sm:p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors shrink-0">
+                      <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                     </div>
-                    <div>
-                      <p className="text-muted-foreground text-sm">
+                    <div className="min-w-0 flex-1">
+                      <p className="text-muted-foreground text-xs sm:text-sm">
                         {item.label}
                       </p>
-                      <p className="text-foreground font-medium group-hover:text-primary transition-colors">
+                      <p className="text-foreground text-sm sm:text-base font-medium group-hover:text-primary transition-colors truncate">
                         {item.value}
                       </p>
                     </div>
