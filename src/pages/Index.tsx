@@ -8,6 +8,7 @@ import { ProjectsSection } from "@/components/ProjectsSection";
 import { SkillsSection } from "@/components/SkillsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
+import { ScrollReveal } from "@/hooks/useScrollReveal";
 
 const Index = () => {
   const structuredData = {
@@ -119,12 +120,24 @@ const Index = () => {
         <Navbar />
         <main>
           <HeroSection />
-          <AboutSection />
-          <EducationSection />
-          <ExperienceSection />
-          <ProjectsSection />
-          <SkillsSection />
-          <ContactSection />
+          <ScrollReveal>
+            <AboutSection />
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <EducationSection />
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <ExperienceSection />
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <ProjectsSection />
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <SkillsSection />
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <ContactSection />
+          </ScrollReveal>
         </main>
         <Footer />
       </div>
