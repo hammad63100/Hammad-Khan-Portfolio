@@ -168,8 +168,8 @@ const orbitingIcons = [
 
 export const AboutSection = () => {
   return (
-    <section id="about" className="py-20 md:py-32">
-      <div className="container mx-auto px-6">
+    <section id="about" className="py-20 md:py-32 overflow-visible">
+      <div className="container mx-auto px-6 overflow-visible">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             About <span className="text-gradient">Me</span>
@@ -177,15 +177,15 @@ export const AboutSection = () => {
           <div className="w-20 h-1 bg-primary mx-auto" />
         </div>
 
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24 overflow-visible">
           {/* Profile Photo with Orbiting Icons */}
-          <div className="relative flex-shrink-0">
-            <div className="relative w-80 h-80 md:w-96 md:h-96">
+          <div className="relative flex-shrink-0 overflow-visible py-16 md:py-20 px-8 md:px-12">
+            <div className="relative w-64 h-64 md:w-72 md:h-72 overflow-visible">
               {/* First Orbit - Inner */}
               <div className="absolute inset-0 animate-spin-slow">
                 {orbitingIcons.slice(0, 6).map((item, index) => {
                   const angle = (index * 360) / 6;
-                  const radius = 130;
+                  const radius = 110;
                   const x = Math.cos((angle * Math.PI) / 180) * radius;
                   const y = Math.sin((angle * Math.PI) / 180) * radius;
                   return (
@@ -211,7 +211,7 @@ export const AboutSection = () => {
               <div className="absolute inset-0 animate-spin-slower">
                 {orbitingIcons.slice(6, 14).map((item, index) => {
                   const angle = (index * 360) / 8 + 22.5;
-                  const radius = 165;
+                  const radius = 145;
                   const x = Math.cos((angle * Math.PI) / 180) * radius;
                   const y = Math.sin((angle * Math.PI) / 180) * radius;
                   return (
@@ -237,7 +237,7 @@ export const AboutSection = () => {
               <div className="absolute inset-0 animate-spin-slowest">
                 {orbitingIcons.slice(14, 22).map((item, index) => {
                   const angle = (index * 360) / 8 + 10;
-                  const radius = 200;
+                  const radius = 180;
                   const x = Math.cos((angle * Math.PI) / 180) * radius;
                   const y = Math.sin((angle * Math.PI) / 180) * radius;
                   return (
@@ -260,10 +260,10 @@ export const AboutSection = () => {
               </div>
 
               {/* Glowing Ring */}
-              <div className="absolute inset-12 md:inset-16 rounded-full bg-gradient-to-r from-primary/30 via-accent/20 to-primary/30 animate-pulse" />
+              <div className="absolute inset-4 md:inset-6 rounded-full bg-gradient-to-r from-primary/30 via-accent/20 to-primary/30 animate-pulse" />
               
               {/* Profile Image */}
-              <div className="absolute inset-14 md:inset-20 rounded-full overflow-hidden border-2 border-primary/50 shadow-xl shadow-primary/20">
+              <div className="absolute inset-6 md:inset-8 rounded-full overflow-hidden border-2 border-primary/50 shadow-xl shadow-primary/20">
                 <img
                   src={profilePhoto}
                   alt="Hammad Khan - Blockchain Developer"
