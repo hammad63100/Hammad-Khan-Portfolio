@@ -7,11 +7,11 @@ const skillCategories = [
     icon: Globe,
     skills: [
       "Ethereum",
-      "Polygon",
-      "Solana",
-      "Binance Smart Chain (BSC)",
-      "Bitcoin",
-      "Hyperledger",
+      // "Polygon",
+      // "Solana",
+      // "Binance Smart Chain (BSC)",
+      // "Bitcoin",
+      // "Hyperledger",
     ],
   },
   {
