@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "./ThemeToggle";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -30,8 +30,8 @@ export const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="text-2xl font-bold text-gradient">
-          HK
+        <a href="#" className="flex items-center">
+          <img src={logo} alt="Logo" className="h-20 w-auto object-contain" />
         </a>
 
         {/* Desktop Navigation */}
@@ -72,12 +72,10 @@ export const Navbar = () => {
             <Mail className="w-5 h-5" />
           </a>
           <div className="w-px h-5 bg-border mx-1" />
-          <ThemeToggle />
         </div>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center gap-2">
-          <ThemeToggle />
           <Button
             variant="ghost"
             size="icon"

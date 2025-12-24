@@ -214,7 +214,7 @@ export const BackgroundIcons = () => {
                         }}
                     >
                         <div 
-                            className="w-full h-full opacity-30 brightness-150 drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]"
+                            className="w-full h-full opacity-70 drop-shadow-none"
                             style={{ 
                                 animation: `spin-slow ${duration} linear infinite reverse` 
                             }}
@@ -229,8 +229,8 @@ export const BackgroundIcons = () => {
 
     return (
         <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-            {/* Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100vmin] h-[100vmin] bg-primary/5 rounded-full blur-[100px] animate-pulse-glow" />
+            {/* Background Glow - Minimal intensity */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vmin] h-[60vmin] bg-primary/2 rounded-full blur-[60px] animate-pulse-glow opacity-20" />
             
             {/* Orbits */}
             <OrbitRing icons={orbit1} size="40vmin" duration="40s" />

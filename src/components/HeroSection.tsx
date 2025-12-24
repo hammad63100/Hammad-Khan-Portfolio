@@ -18,7 +18,7 @@ export const HeroSection = () => {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="absolute inset-0 bg-background/80" />
+        <div className="absolute inset-0 bg-white/90 dark:bg-black/50" />
       </div>
 
       {/* Content */}
