@@ -1,6 +1,7 @@
 import { ArrowDown, Github, Linkedin, Mail, Phone, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
+import resume from "@/assets/HammadKhanResume.pdf";
 
 export const HeroSection = () => {
   return (
@@ -66,7 +67,7 @@ export const HeroSection = () => {
               style={{ animationDelay: '1000ms' }}
               asChild
             >
-              <a href="/resume.pdf" download="Hammad_Khan_Resume.pdf">
+              <a href={resume} download="Hammad_Khan_Resume.pdf">
                 <Download className="w-4 h-4" />
                 Download CV
               </a>
