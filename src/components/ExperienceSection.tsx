@@ -5,7 +5,7 @@ const experiences = [
   {
     title: "Backend Developer",
     company: "SAT Software House",
-    period: "November 2025 - Present",
+    period: "November 2025 - May 2026",
     location: "",
     highlights: [
       "Developed robust backend services using Node.js and Express.js",
